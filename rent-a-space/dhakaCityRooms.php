@@ -9,7 +9,6 @@ $sql = "SELECT * FROM room where city = 'Dhaka'";
 // $res = explode(",", $info[0]['image']);
 $run = mysqli_query($conn,$sql);
 $data = mysqli_num_rows($run) > 0;
-
 $query = "SELECT city as city_name  FROM room where city = 'Dhaka'";
 $result = mysqli_query($conn, $query);
 
@@ -118,6 +117,9 @@ if($data){
                         data-bs-target="#staticBackdrop">
                         View Details
                     </button>
+                    <?php
+                            echo " <a href='roomBookingForm.php?id=$row[room_id]'> <button class='btn btn-outline-primary' style='margin-left:37%' type='submit' name='room_id' value=' room_id'>book</button></a> ";
+                            ?>
 
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -142,8 +144,8 @@ if($data){
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary"
-                                        style="background-color: #f44336;">Book now</button>
+                                    <!-- <button type="button" class="btn btn-primary"
+                                        style="background-color: #f44336;">Book now</button> -->
                                 </div>
                             </div>
                         </div>
